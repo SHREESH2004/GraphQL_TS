@@ -1,10 +1,10 @@
 import e from "express";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { start } from "repl";
+import { schema } from "./graphQL/Schema/schema.js";
 
 const client=new ApolloServer({
-    typeDefs:'type Query { hello: String ,hello2: String }',
+    typeDefs:schema,
     resolvers:{
         Query:{
             hello:()=> 'Hello world!',
