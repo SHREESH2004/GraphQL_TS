@@ -4,9 +4,12 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { start } from "repl";
 
 const client=new ApolloServer({
-    typeDefs:'type Query { hello: String }',
+    typeDefs:'type Query { hello: String ,hello2: String }',
     resolvers:{
-        Query:{hello:()=> 'Hello world!'},
+        Query:{
+            hello:()=> 'Hello world!',
+            hello2:()=> 'Hello world 2!',
+        },
     },
 });
 
