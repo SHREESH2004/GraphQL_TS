@@ -19,6 +19,7 @@ const client=new ApolloServer({
 async function startServer() {
   try {
     const dbUrl = "mongodb+srv://shreeshsanyal:QBqeJ7Ukd99Qg9IX@zippy.hlp2cgw.mongodb.net/";
+    const databaseName = process.env.MONGODB_URI||"";
     if (!dbUrl) {
       throw new Error("MONGODB_URI is not defined in your .env file");
     }
@@ -30,6 +31,7 @@ async function startServer() {
     });
     
     console.log(`🚀 Server ready at: ${url}`);
+    console.log(`🌍 Database connected at: ${databaseName}`);
 
   } catch (error) {
     console.error("Failed to start the server:", error);
