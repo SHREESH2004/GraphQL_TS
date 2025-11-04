@@ -4,7 +4,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
-import { getAllUser } from "./controller/main.controller.js";
+import { getAllCourses, getAllUser } from "./controller/main.controller.js";
 
 dotenv.config();
 const client = new ApolloServer({
@@ -12,6 +12,7 @@ const client = new ApolloServer({
   resolvers: {
     Query: {
       users: () => getAllUser(),
+      courses: () => getAllCourses(),
     },
   },
 });
@@ -23,6 +24,7 @@ async function startServer() {
     }
     await connectDB(dbUrl);
     const users = await getAllUser();
+    const courses = await getAllCourses();
 
     const { url } = await startStandaloneServer(client, {
       listen: { port: 4000 },
@@ -31,6 +33,7 @@ async function startServer() {
     console.log(`🚀 Server ready at: ${url}`);
     console.log(`🌍 Database connected at: ${dbUrl}`);
     console.log(`👥 Fetched ${users.length} users from the database.`);
+    console.log(`📚 Fetched ${courses.length} courses from the database.`);
 
   } catch (error) {
     console.error("Failed to start the server:", error);
