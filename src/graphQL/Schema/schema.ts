@@ -11,7 +11,6 @@ type User{
   googleId:String
   password:String
   facebookId:String!
-  password:String!
   createdAt:String!
   updatedAt:String!
 }
