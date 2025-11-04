@@ -1,10 +1,23 @@
-import userModels from "../models/user.models.js";
+import {userModels} from "../models/user.models.js";
+import { courseModels } from "../models/Courses.models.js";
 
-export const getAllUser=async ()=>{
+export const getAllUser = async () => {
   try {
     const users = await userModels.find();
     return users;
   } catch (error) {
     throw new Error("Error fetching users");
+  }
+}
+
+
+export const getAllCourses = async () => {
+  try {
+    const courses = await courseModels.find();
+    return courses;
+
+  }
+  catch(error){
+    throw new Error("Error fetching courses");
   }
 }
