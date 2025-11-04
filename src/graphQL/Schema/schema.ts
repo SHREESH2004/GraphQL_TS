@@ -17,8 +17,6 @@ type User{
 
 
 type Query{
-  hello: String
-  hello2: String
   users: [User]
 }
 `;

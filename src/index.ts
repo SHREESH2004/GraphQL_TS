@@ -11,8 +11,6 @@ const client = new ApolloServer({
   typeDefs: schema,
   resolvers: {
     Query: {
-      hello: () => 'Hello world!',
-      hello2: () => 'Hello world 2!',
       users: () => getAllUser(),
     },
   },
