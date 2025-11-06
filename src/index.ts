@@ -34,7 +34,6 @@ async function startServer() {
     console.log(`🌍 Database connected at: ${dbUrl}`);
     console.log(`👥 Fetched ${users.length} users from the database.`);
     console.log(`📚 Fetched ${courses.length} courses from the database.`);
-    console.log("Apollo Server is running with Express.js integration.");
 
   } catch (error) {
     console.error("Failed to start the server:", error);
