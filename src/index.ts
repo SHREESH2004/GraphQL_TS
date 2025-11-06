@@ -18,7 +18,8 @@ const client = new ApolloServer({
 });
 async function startServer() {
   try {
-    const dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/GraphQL";
+    const dbUrl:string|undefined
+     = process.env.MONGODB_URI;
     if (!dbUrl) {
       throw new Error("MONGODB_URI is not defined in your .env file");
     }
