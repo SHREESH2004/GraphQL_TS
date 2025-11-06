@@ -32,8 +32,6 @@ async function startServer() {
 
     console.log(`🚀 Server ready at: ${url}`);
     console.log(`🌍 Database connected at: ${dbUrl}`);
-    console.log(`👥 Fetched ${users.length} users from the database.`);
-    console.log(`📚 Fetched ${courses.length} courses from the database.`);
 
   } catch (error) {
     console.error("Failed to start the server:", error);
