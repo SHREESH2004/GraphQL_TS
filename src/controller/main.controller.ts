@@ -21,3 +21,8 @@ export const getAllCourses = async () => {
     throw new Error("Error fetching courses");
   }
 }
+
+export const getCoursesbyId=async(id:string)=>{
+  const courses=await courseModels.findById(id);
+  return courses;
+}

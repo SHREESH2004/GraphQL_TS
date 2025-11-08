@@ -3,18 +3,20 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
-import { getAllCourses, getAllUser } from "./controller/main.controller.js";
-
+import { getAllCourses, getAllUser, getCoursesbyId } from "./controller/main.controller.js";
+import { get } from "http";
 dotenv.config();
 const client = new ApolloServer({
   typeDefs: schema,
   resolvers: {
     Query: {
       users: () => getAllUser(),
-      courses: () => getAllCourses(),
+      courses: ()=>getAllCourses(),
+      course: ()=>getCoursesbyId("690a6f33999104fef94d0402"),
     },
   },
 });
+
 async function startServer() {
   try {
     const dbUrl:string|undefined
@@ -22,6 +24,7 @@ async function startServer() {
     if (!dbUrl) {
       throw new Error("MONGODB_URI is not defined in your .env file");
     }
+
     await connectDB(dbUrl);
     const users = await getAllUser();
     const courses = await getAllCourses();

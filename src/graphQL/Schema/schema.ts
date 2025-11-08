@@ -28,6 +28,7 @@ type Course{
 
 type Query{
   users: [User]
-  courses: [Course]
+  courses: [Course],
+  course(id:ID!):[Course],
 }
 `;
