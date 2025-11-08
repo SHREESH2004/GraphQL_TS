@@ -11,8 +11,8 @@ const client = new ApolloServer({
   resolvers: {
     Query: {
       users: () => getAllUser(),
-      courses: ()=>getAllCourses(),
-      course: ()=>getCoursesbyId("690a6f33999104fef94d0402"),
+      courses: () => getAllCourses(),
+      course: (parent: any, args: { id: string }) => getCoursesbyId(parent, args),
     },
   },
 });

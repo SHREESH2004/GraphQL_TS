@@ -22,7 +22,8 @@ export const getAllCourses = async () => {
   }
 }
 
-export const getCoursesbyId=async(id:string)=>{
-  const courses=await courseModels.findById(id);
+export const getCoursesbyId=async(parent:any,arg:{id:string})=>{
+  const courses=await courseModels.findById(arg.id);
+  console.log(arg.id);
   return courses;
 }
