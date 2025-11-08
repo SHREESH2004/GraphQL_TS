@@ -17,9 +17,9 @@ type User{
 
 type Course{
   id:ID!
+  instructor:User!
   title:String!
   description:String!
-  instructor:String!
   duration:String!
   price:Float!
   createdAt:String!
