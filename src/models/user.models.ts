@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
@@ -39,6 +39,11 @@ const userSchema = new mongoose.Schema(
     facebookId: {
       type: String,
       default: null,
+    },
+    course:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Course',
+        required:true
     },
   },
   {
