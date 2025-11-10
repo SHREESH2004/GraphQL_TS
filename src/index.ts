@@ -32,7 +32,7 @@ const client = new ApolloServer({
     Course: {
       id: (parent) => parent._id || parent.id,
       instructor: async (parent) => await getUserById(parent.instructor),
-      lectures: async (parent) => await getLecturesById(parent.id), 
+      lectures: async (parent) => await getLecturesById(parent.lectures), 
     },
 
     Lecture: {
