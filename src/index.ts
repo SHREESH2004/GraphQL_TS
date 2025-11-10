@@ -27,6 +27,8 @@ const client = new ApolloServer({
 
     User: {
       id: (parent) => parent._id || parent.id,
+      course: async (parent) => await getCoursesById(parent.course),
+      lectures: async (parent) => await getLecturesById(parent.id),
     },
 
     Course: {
