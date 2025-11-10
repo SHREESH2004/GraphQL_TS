@@ -18,25 +18,31 @@ const client = new ApolloServer({
   typeDefs: schema,
   resolvers: {
     Query: {
-      users: () => getAllUser(),
-      courses: () => getAllCourses(),
-      course: (parent: any, args: { id: string }) => getCoursesById(args.id),
-      lectures: () => getAllLectures(),
-      lecture: (parent: any, args: { id: string }) => getLecturesById(args.id),
+      users: async () => await getAllUser(),
+      courses: async () => await getAllCourses(),
+      course: async (_: any, { id }) => await getCoursesById(id),
+      lectures: async () => await getAllLectures(),
+      lecture: async (_: any, { id }) => await getLecturesById(id),
+    },
+
+    User: {
+      id: (parent) => parent._id || parent.id,
     },
 
     Course: {
-      instructor: async (parent: any) => {
-        return await getUserById(parent.instructor);
-      },
+      id: (parent) => parent._id || parent.id,
+      instructor: async (parent) => await getUserById(parent.instructor),
+      lectures: async (parent) => await getLecturesById(parent.id),
     },
+
     Lecture: {
-      course: async (parent: any) => {
-        return await getCoursesById(parent.course);
-      },
+      id: (parent) => parent._id || parent.id,
+      course: async (parent) => await getCoursesById(parent.course),
+      video: (parent) => parent.video || null
     },
   },
 });
+
 
 async function startServer() {
   try {

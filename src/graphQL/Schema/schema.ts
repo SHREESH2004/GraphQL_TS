@@ -8,8 +8,8 @@ type User {
   avatar: String!
   verified: Boolean!
   googleId: String
+  facebookId: String
   password: String
-  facebookId: String!
   createdAt: String!
   updatedAt: String!
 }
@@ -21,7 +21,7 @@ type Course {
   description: String!
   duration: String!
   price: Float!
-  lectures: [Lecture] 
+  lectures: [Lecture]
   createdAt: String!
   updatedAt: String!
 }
@@ -30,13 +30,14 @@ type Lecture {
   id: ID!
   title: String!
   description: String
-  video: VideoResolutions 
+  video: VideoResolutions
   section: String!
   duration: Int
   course: Course!
   createdAt: String!
   updatedAt: String!
 }
+
 type VideoResolutions {
   p480: String!
   p720: String!
@@ -44,12 +45,11 @@ type VideoResolutions {
 }
 
 type Query {
-  
-  users: [User]
-  courses: [Course]
+  users: [User!]!
+  courses: [Course!]!
   course(id: ID!): Course
-  lectures: [Lecture]
-  lecture(id:ID!):Lecture
-
+  lectures: [Lecture!]!
+  lecture(id: ID!): Lecture
 }
+
 `;
