@@ -27,22 +27,21 @@ const client = new ApolloServer({
 
     User: {
       id: (parent) => parent._id || parent.id,
-      course: async (parent) => await getCoursesById(parent.course),
-      lectures: async (parent) => await getLecturesById(parent.id),
     },
 
     Course: {
       id: (parent) => parent._id || parent.id,
       instructor: async (parent) => await getUserById(parent.instructor),
-      lectures: async (parent) => await getLecturesById(parent.id),
+      lectures: async (parent) => await getLecturesById(parent.id), 
     },
 
     Lecture: {
       id: (parent) => parent._id || parent.id,
       course: async (parent) => await getCoursesById(parent.course),
-      video: (parent) => parent.video || null
+      video: (parent) => parent.video || null,
     },
-  },
+  }
+
 });
 
 
