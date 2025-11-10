@@ -1,53 +1,55 @@
 export const schema = `#graphql
 
-
-type User{
-  id:ID!
-  name:String!
-  email:String!
-  role:String!
-  avatar:String!
-  verified:Boolean!
-  googleId:String
-  password:String
-  facebookId:String!
-  createdAt:String!
-  updatedAt:String!
-}
-
-type Course{
-  id:ID!
-  instructor:User!
-  title:String!
-  description:String!
-  duration:String!
-  price:Float!
-  createdAt:String!
-  updatedAt:String!
-}
-type Lecture{
+type User {
   id: ID!
-  title: String!
-  description: String
-  videoUrl: videoUrl!
-  duration: Int 
-  course: Course! 
+  name: String!
+  email: String!
+  role: String!
+  avatar: String!
+  verified: Boolean!
+  googleId: String
+  password: String
+  facebookId: String!
   createdAt: String!
   updatedAt: String!
 }
 
-type videoUrl{
-  480p:String!,
-  720p:String!,
-  1080p:String!,
+type Course {
+  id: ID!
+  instructor: User!
+  title: String!
+  description: String!
+  duration: String!
+  price: Float!
+  lectures: [Lecture] 
+  createdAt: String!
+  updatedAt: String!
 }
 
+type Lecture {
+  id: ID!
+  title: String!
+  description: String
+  video: VideoResolutions 
+  section: String!
+  duration: Int
+  course: Course!
+  createdAt: String!
+  updatedAt: String!
+}
+type VideoResolutions {
+  p480: String!
+  p720: String!
+  p1080: String!
+}
 
-type Query{
+type Query {
+  
   users: [User]
-  courses: [Course],
+  courses: [Course]
   course(id: ID!): Course
-  Lecture:[Lecture]
+  lectures: [Lecture]
+  lecture(id:ID!):Lecture
 
 }
 `;
