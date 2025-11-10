@@ -25,10 +25,14 @@ type Course{
   createdAt:String!
   updatedAt:String!
 }
+type Lecture{
+
+}
 
 type Query{
   users: [User]
   courses: [Course],
   course(id: ID!): Course
+  Lecture:[Lecture]
 }
 `;
