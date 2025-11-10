@@ -24,6 +24,6 @@ export const getAllCourses = async () => {
 
 export const getCoursesbyId=async(parent:any,arg:{id:string})=>{
   const courses=await courseModels.findById(arg.id).populate('instructor');
-  console.log(courses?.instructor);
+  console.log("Insructor name:",courses?.instructor);
   return courses;
 }
