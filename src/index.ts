@@ -4,7 +4,6 @@ import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
 import { getAllCourses, getAllUser, getCoursesbyId, getUserbyId } from "./controller/main.controller.js";
-import { get } from "http";
 dotenv.config();
 const client = new ApolloServer({
   typeDefs: schema,
