@@ -26,13 +26,28 @@ type Course{
   updatedAt:String!
 }
 type Lecture{
-
+  id: ID!
+  title: String!
+  description: String
+  videoUrl: videoUrl!
+  duration: Int 
+  course: Course! 
+  createdAt: String!
+  updatedAt: String!
 }
+
+type videoUrl{
+  480p:String!,
+  720p:String!,
+  1080p:String!,
+}
+
 
 type Query{
   users: [User]
   courses: [Course],
   course(id: ID!): Course
   Lecture:[Lecture]
+
 }
 `;
