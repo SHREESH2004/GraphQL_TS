@@ -51,5 +51,4 @@ type Query {
   lectures: [Lecture!]!
   lecture(id: ID!): Lecture
 }
-
 `;
