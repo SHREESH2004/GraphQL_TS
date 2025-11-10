@@ -3,7 +3,6 @@ export const schema = `#graphql
 type User {
   id: ID!
   name: String!
-  user:  User!
   email: String!
   role: String!
   avatar: String!
@@ -13,7 +12,6 @@ type User {
   password: String
   createdAt: String!
   updatedAt: String!
-  lectures:Lecture!
 }
 
 type Course {
