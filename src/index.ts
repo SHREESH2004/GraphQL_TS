@@ -3,7 +3,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
-import { getAllCourses, getAllUser, getCoursesbyId } from "./controller/main.controller.js";
+import { getAllCourses, getAllUser, getCoursesbyId, getUserbyId } from "./controller/main.controller.js";
 import { get } from "http";
 dotenv.config();
 const client = new ApolloServer({
@@ -14,6 +14,11 @@ const client = new ApolloServer({
       courses: () => getAllCourses(),
       course: (parent: any, args: { id: string }) => getCoursesbyId(parent, args),
     },
+    Course:{
+      instructor:(courses)=>{
+        getUserbyId(courses.instructor)
+      }
+    }
   },
 });
 

@@ -27,3 +27,8 @@ export const getCoursesbyId=async(parent:any,arg:{id:string})=>{
   console.log("Insructor name:",courses?.instructor);
   return courses;
 }
+
+export const getUserbyId=async(id:string)=>{
+  const courses=await userModels.findById(id);
+  return courses;
+}
