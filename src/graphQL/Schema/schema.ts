@@ -44,6 +44,13 @@ type VideoResolutions {
   p720: String!
   p1080: String!
 }
+input CreateUserInput {
+  name: String!
+  email: String!
+  role: String!
+  avatar: String!
+  password: String!
+}
 
 type Query {
   users: [User!]!
@@ -51,5 +58,8 @@ type Query {
   course(id: ID!): Course
   lectures: [Lecture!]!
   lecture(id: ID!): Lecture
+}
+type Mutation{
+  createUser(input:CreateUserInput!):User!
 }
 `;

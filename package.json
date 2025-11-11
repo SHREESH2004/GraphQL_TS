@@ -21,6 +21,7 @@
   "homepage": "https://github.com/SHREESH2004/NodeJs-setup-in-TS#readme",
   "dependencies": {
     "@apollo/server": "^5.1.0",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-validator": "^7.3.0",
@@ -28,6 +29,8 @@
     "mongoose": "^8.19.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/express-validator": "^2.20.33",

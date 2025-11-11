@@ -3,45 +3,13 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
-import {
-  getAllCourses,
-  getAllUser,
-  getCoursesById,
-  getUserById,
-  getAllLectures,
-  getLecturesById,
-} from "./controller/main.controller.js";
+import {GraphQLResolvers} from "./graphQL/resolvers/resolvers.js";
 
 dotenv.config();
 
 const client = new ApolloServer({
   typeDefs: schema,
-  resolvers: {
-    Query: {
-      users: async () => await getAllUser(),
-      courses: async () => await getAllCourses(),
-      course: async (_: any, { id }) => await getCoursesById(id),
-      lectures: async () => await getAllLectures(),
-      lecture: async (_: any, { id }) => await getLecturesById(id),
-    },
-
-    User: {
-      id: (parent) => parent._id || parent.id,
-      course: async (parent) => await getCoursesById(parent.course),
-    },
-
-    Course: {
-      id: (parent) => parent._id || parent.id,
-      instructor: async (parent) => await getUserById(parent.instructor),
-      lectures: async (parent) => await getLecturesById(parent.id),
-    },
-
-    Lecture: {
-      id: (parent) => parent._id || parent.id,
-      course: async (parent) => await getCoursesById(parent.course),
-      video: (parent) => parent.video || null,
-    },
-  },
+  resolvers: GraphQLResolvers
 });
 
 
