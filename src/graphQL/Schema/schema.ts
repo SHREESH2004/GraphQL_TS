@@ -12,7 +12,7 @@ type User {
   password: String
   createdAt: String!
   updatedAt: String!
-  course: Course   # ✅ made optional
+  course: Course   
 }
 
 type Course {
