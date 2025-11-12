@@ -3,7 +3,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./graphQL/Schema/schema.js";
 import { connectDB } from "./db/db.js";
 import dotenv from "dotenv";
-import {GraphQLResolvers} from "./graphQL/resolvers/resolvers.js";
+import { GraphQLResolvers } from "./graphQL/resolvers/resolvers.js";
 
 dotenv.config();
 
@@ -26,7 +26,6 @@ async function startServer() {
     const { url } = await startStandaloneServer(client, {
       listen: { port: 4000 },
     });
-
     console.log(`🚀 Server ready at: ${url}`);
     console.log(`🌍 Database connected successfully.`);
   } catch (error) {
