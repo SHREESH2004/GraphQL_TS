@@ -22,7 +22,6 @@ async function startServer() {
     }
 
     await connectDB(dbUrl);
-
     const { url } = await startStandaloneServer(client, {
       listen: { port: 4000 },
     });
