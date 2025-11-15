@@ -26,7 +26,6 @@ async function startServer() {
     const { url } = await startStandaloneServer(client, {
       listen: { port: 4000 },
     });
-
     console.log(`🚀 Server ready at: ${url}`);
     console.log(`🌍 Database connected successfully.`);
     
