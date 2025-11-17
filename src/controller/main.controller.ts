@@ -1,7 +1,6 @@
 import { userModels } from "../models/user.models.js";
 import { courseModels } from "../models/Courses.models.js";
 import { LectureModel } from "../models/Lecture.models.js";
-import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 
