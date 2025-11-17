@@ -9,6 +9,7 @@ import {
     getLecturesByCourseId
 } from "../../controller/main.controller.js"
 
+
 interface CreateUserInput {
     name: string;
     email: string;
